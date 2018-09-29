@@ -24,14 +24,14 @@ public class NotificationEventReceiver extends WakefulBroadcastReceiver {
     private static final String ACTION_DELETE_NOTIFICATION = "ACTION_DELETE_NOTIFICATION";
 
     // this is where I can change the time interval (period) of the notification
-    private static final int NOTIFICATIONS_INTERVAL_IN_HOURS = 2;
+    private static final int NOTIFICATIONS_INTERVAL_IN_HOURS = 2; // really 15 minute increments lol
 
     public static void setupAlarm(Context context) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         PendingIntent alarmIntent = getStartPendingIntent(context);
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
                 getTriggerAt(new Date()),
-                NOTIFICATIONS_INTERVAL_IN_HOURS * AlarmManager.INTERVAL_HOUR,
+                NOTIFICATIONS_INTERVAL_IN_HOURS * AlarmManager.INTERVAL_FIFTEEN_MINUTES,
                 alarmIntent);                                             /// ^^^ change this one to
     }
 
