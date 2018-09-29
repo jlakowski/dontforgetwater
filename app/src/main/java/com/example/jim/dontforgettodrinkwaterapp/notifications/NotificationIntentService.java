@@ -1,6 +1,7 @@
 package com.example.jim.dontforgettodrinkwaterapp.notifications;
 
 import android.app.IntentService;
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -65,7 +66,9 @@ public class NotificationIntentService extends IntentService {
                 .setAutoCancel(true)
                 .setColor(getResources().getColor(R.color.colorAccent))
                 .setContentText("don't forget to drink water!")
-                .setSmallIcon(R.drawable.notification_icon);
+                .setSmallIcon(R.drawable.notification_icon)
+                .setVibrate(new long[] { 0, 100, 100, 100, 100 })
+                .setLights(16766720, 100,100);
 
         Intent mainIntent = new Intent(this, NotificationActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this,
