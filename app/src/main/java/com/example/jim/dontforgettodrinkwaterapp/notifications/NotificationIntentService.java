@@ -67,8 +67,9 @@ public class NotificationIntentService extends IntentService {
                 .setColor(getResources().getColor(R.color.colorAccent))
                 .setContentText("don't forget to drink water!")
                 .setSmallIcon(R.drawable.notification_icon)
+                .setPriority(Notification.PRIORITY_HIGH) //this should make it heads up
                 .setVibrate(new long[] { 0, 100, 100, 100, 100 })
-                .setLights(16766720, 100,100);
+                .setLights(55255, 300,300);
 
         Intent mainIntent = new Intent(this, NotificationActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this,
